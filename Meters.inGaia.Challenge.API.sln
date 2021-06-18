@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meters.inGaia.Challenge.API", "Meters.inGaia.Challenge.API\Meters.inGaia.Challenge.API.csproj", "{05561608-5F06-48AB-AE71-8DC489D7DD1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05561608-5F06-48AB-AE71-8DC489D7DD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05561608-5F06-48AB-AE71-8DC489D7DD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05561608-5F06-48AB-AE71-8DC489D7DD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05561608-5F06-48AB-AE71-8DC489D7DD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B4EC03E-EAC9-4EB2-A433-8A02818DB703}
+	EndGlobalSection
+EndGlobal
