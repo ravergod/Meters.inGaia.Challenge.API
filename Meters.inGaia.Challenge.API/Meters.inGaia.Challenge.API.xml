@@ -4,5 +4,19 @@
         <name>Meters.inGaia.Challenge.API</name>
     </assembly>
     <members>
+        <member name="M:Meters.inGaia.Challenge.API.Controllers.PropertyController.GetSquareMeterPrice">
+            <summary>
+            Get square meter price.
+            </summary>
+            <returns><see cref="T:Meters.inGaia.Challenge.API.Models.MeterPrice"/>.</returns>
+        </member>
+        <member name="M:Meters.inGaia.Challenge.API.Controllers.PropertyController.GetPropertyValue(System.String)">
+            <summary>
+            Get property value based on square meters provided.
+            </summary>
+            <remarks> Should use only meters with dot, API does not accepts comma.</remarks>
+            <param name="meters"></param>
+            <returns><see cref="T:Meters.inGaia.Challenge.API.Models.Property"/>.</returns>
+        </member>
     </members>
 </doc>

@@ -14,3 +14,4 @@ a fim de calcular o valor do imóvel baseado no tamanho em m².
 - CI/CD feito também no Azure com deploy automático
 - Arquivos de versão alocados e disponíveis no [github](https://github.com/ravergod/Meters.inGaia.Challenge.API)
 - Documentação feita com Swagger e disponível em:
+- Lint utilizado: StyleCop

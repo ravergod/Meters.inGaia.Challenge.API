@@ -2,6 +2,10 @@ using System;
 using System.IO;
 using System.Reflection;
 using Meters.inGaia.Challenge.API.Core.Infrastructure;
+using Meters.inGaia.Challenge.API.Repositories.MeterPriceRepository;
+using Meters.inGaia.Challenge.API.Repositories.MeterPriceRepository.Interfaces;
+using Meters.inGaia.Challenge.API.Services.PropertyService;
+using Meters.inGaia.Challenge.API.Services.PropertyService.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +31,10 @@ namespace Meters.inGaia.Challenge.API
 
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddScoped<IPropertyService, PropertyService>();
+
+            services.AddTransient<IMeterPriceRepository, MeterPriceRepository>();
 
             // Swagger configuration
             services.AddSwaggerGen(c =>

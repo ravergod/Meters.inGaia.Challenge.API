@@ -2,3 +2,8 @@
 
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1601.severity=silent
+dotnet_diagnostic.SA1602.severity=silent
+dotnet_diagnostic.SA1101.severity=silent
+dotnet_diagnostic.SA1401.severity=silent
+dotnet_diagnostic.SA1413.severity=silent
