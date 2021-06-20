@@ -1,37 +1,38 @@
-﻿using Meters.inGaia.Challenge.API.Models;
-using Meters.inGaia.Challenge.API.Repositories.MeterPriceRepository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Threading.Tasks;
 using Dapper;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Meters.inGaia.Challenge.API.Core.Infrastructure;
 using Meters.inGaia.Challenge.API.Models.Enums;
+using Meters.inGaia.Challenge.API.Repositories.Base;
+using Meters.inGaia.Challenge.API.Repositories.MeterPrice.Interface;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using MeterPriceModel = Meters.inGaia.Challenge.API.Models.MeterPrice;
 
-namespace Meters.inGaia.Challenge.API.Repositories.MeterPriceRepository
+namespace Meters.inGaia.Challenge.API.Repositories.MeterPrice
 {
     public class MeterPriceRepository : RepositoryBase, IMeterPriceRepository
     {
         public MeterPriceRepository(
-            ILogger<MeterPrice> logger,
+            ILogger<MeterPriceModel> logger,
             IOptions<ApplicationSettings> applicationSettings)
             : base(logger, applicationSettings)
         {
         }
 
-        public async Task<MeterPrice> GetMeterPrice()
+        public async Task<MeterPriceModel> GetMeterPrice()
         {
-            MeterPrice result;
+            MeterPriceModel result;
 
-            logger.LogDebug(MsgConnectionInit);
+            logger.LogInformation(MsgConnectionInit);
 
-            using (var conn = GetDataBaseConnection())
+            using (var conn = GetSQLDataBaseConnection())
             {
-                logger.LogDebug(MsgConnectionOpen);
+                logger.LogInformation(MsgConnectionOpen);
 
-                var sql = @"SELECT		TOP 1 MP.ID, MP.Metertype, MP.value 
+                var sql = @"SELECT		TOP 1 MP.ID, 
+                                        MP.METERTYPE, 
+                                        MP.VALUE 
                             FROM		METERPRICE MP
                             INNER JOIN	METERTYPE MT
                             ON			MT.TYPE = @METERTYPE 
@@ -44,7 +45,7 @@ namespace Meters.inGaia.Challenge.API.Repositories.MeterPriceRepository
 
                 try
                 {
-                    result = await conn.QueryFirstAsync<MeterPrice>(sql, param);
+                    result = await conn.QueryFirstAsync<MeterPriceModel>(sql, param);
                 }
                 catch (Exception e)
                 {
@@ -52,7 +53,7 @@ namespace Meters.inGaia.Challenge.API.Repositories.MeterPriceRepository
                 }
             }
 
-            logger.LogDebug(MsgConnectionClose);
+            logger.LogInformation(MsgConnectionClose);
 
             return result;
         }

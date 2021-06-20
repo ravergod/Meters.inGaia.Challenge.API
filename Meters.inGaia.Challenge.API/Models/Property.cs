@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Meters.inGaia.Challenge.API.Models
+﻿namespace Meters.inGaia.Challenge.API.Models
 {
     public class Property
     {
-        public decimal PropertySizeInSquareMeters { get; set; }
+        public Property()
+        {
+        }
 
-        public decimal Value { get; set; }
+        public decimal PropertySizeInSquareMeters { get; private set; }
 
-        public string Error { get; set; }
+        public decimal Value { get; private set; }
+
+        public string Error { get; private set; }
+
+        public void SetPropertySize(decimal property)
+        {
+            PropertySizeInSquareMeters = property;
+        }
+
+        public void SetValue(decimal value)
+        {
+            Value = value;
+        }
+
+        public void SetError(string error)
+        {
+            Error = error;
+        }
     }
 }

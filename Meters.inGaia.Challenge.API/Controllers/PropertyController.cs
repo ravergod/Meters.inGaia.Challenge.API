@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Meters.inGaia.Challenge.API.Models;
-using Meters.inGaia.Challenge.API.Services.PropertyService.Interfaces;
+using Meters.inGaia.Challenge.API.Services.Property.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

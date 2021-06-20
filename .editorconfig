@@ -7,3 +7,5 @@ dotnet_diagnostic.SA1602.severity=silent
 dotnet_diagnostic.SA1101.severity=silent
 dotnet_diagnostic.SA1401.severity=silent
 dotnet_diagnostic.SA1413.severity=silent
+dotnet_diagnostic.SA1402.severity=silent
+dotnet_diagnostic.SA1614.severity=silent

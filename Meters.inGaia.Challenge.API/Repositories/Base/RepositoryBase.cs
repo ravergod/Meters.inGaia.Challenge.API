@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
+﻿using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using Meters.inGaia.Challenge.API.Core.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Meters.inGaia.Challenge.API.Repositories
+namespace Meters.inGaia.Challenge.API.Repositories.Base
 {
     public class RepositoryBase
     {
@@ -25,7 +21,7 @@ namespace Meters.inGaia.Challenge.API.Repositories
             this.applicationSettings = applicationSettings;
         }
 
-        protected DbConnection GetDataBaseConnection()
+        protected DbConnection GetSQLDataBaseConnection()
         {
             var conn = new SqlConnection(applicationSettings.Value.DatabaseSettings.DefaultConnectionString);
             return conn;

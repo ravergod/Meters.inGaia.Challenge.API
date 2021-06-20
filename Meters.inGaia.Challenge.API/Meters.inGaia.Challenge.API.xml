@@ -18,5 +18,18 @@
             <param name="meters"></param>
             <returns><see cref="T:Meters.inGaia.Challenge.API.Models.Property"/>.</returns>
         </member>
+        <member name="M:Meters.inGaia.Challenge.API.Services.Property.PropertyService.GetSquareMeterPrice">
+            <summary>
+            Get square meter price.
+            </summary>
+            <returns><see cref="T:Meters.inGaia.Challenge.API.Models.MeterPrice"/>.</returns>
+        </member>
+        <member name="M:Meters.inGaia.Challenge.API.Services.Property.PropertyService.GetPropertyValue(System.String)">
+            <summary>
+            Execute property value calculation based on the value of the square meter.
+            </summary>
+            <param name="meters"></param>
+            <returns><see cref="N:Meters.inGaia.Challenge.API.Services.Property"/>.</returns>
+        </member>
     </members>
 </doc>
