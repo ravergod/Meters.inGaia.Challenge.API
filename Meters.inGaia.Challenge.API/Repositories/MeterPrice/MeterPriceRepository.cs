@@ -43,14 +43,7 @@ namespace Meters.inGaia.Challenge.API.Repositories.MeterPrice
                     MeterType = nameof(MeterTypeEnum.M2)
                 };
 
-                try
-                {
-                    result = await conn.QueryFirstAsync<MeterPriceModel>(sql, param);
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
+                result = await conn.QueryFirstAsync<MeterPriceModel>(sql, param);
             }
 
             logger.LogInformation(MsgConnectionClose);

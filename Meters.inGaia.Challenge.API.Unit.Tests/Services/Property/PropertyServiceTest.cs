@@ -65,7 +65,7 @@ namespace Meters.inGaia.Challenge.API.Unit.Tests.Services.Property
             var result = await propertyService.GetPropertyValue(meters);
 
             // Assert
-            Assert.True(!string.IsNullOrEmpty(result.Error));
+            Assert.NotEmpty(result.Error);
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace Meters.inGaia.Challenge.API.Unit.Tests.Services.Property
             var result = await propertyService.GetPropertyValue(meters);
 
             // Assert
-            Assert.True(propertyValue != null);
+            Assert.NotNull(propertyValue);
             Assert.Equal(propertyValue.Value, result.Value);
             Assert.Equal(propertyValue.PropertySizeInSquareMeters, result.PropertySizeInSquareMeters);
         }

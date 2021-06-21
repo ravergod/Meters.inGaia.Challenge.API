@@ -26,6 +26,7 @@ namespace Meters.inGaia.Challenge.API.Controllers
         /// Get square meter price.
         /// </summary>
         /// <returns><see cref="MeterPrice"/>.</returns>
+        [ProducesResponseType(typeof(MeterPrice), 200)]
         [HttpGet("squareMeterPrice")]
         public async Task<IActionResult> GetSquareMeterPrice()
         {
@@ -45,6 +46,7 @@ namespace Meters.inGaia.Challenge.API.Controllers
         /// <remarks> Should use only meters with dot, API does not accepts comma.</remarks>
         /// <param name="meters"></param>
         /// <returns><see cref="Property"/>.</returns>
+        [ProducesResponseType(typeof(Property), 200)]
         [HttpGet("propertyValue/{meters}")]
         public async Task<IActionResult> GetPropertyValue(string meters)
         {

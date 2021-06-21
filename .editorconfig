@@ -10,3 +10,4 @@ dotnet_diagnostic.SA1413.severity=silent
 dotnet_diagnostic.SA1402.severity=silent
 dotnet_diagnostic.SA1614.severity=silent
 dotnet_diagnostic.SA1633.severity=silent
+dotnet_diagnostic.SA1300.severity=suggestion
