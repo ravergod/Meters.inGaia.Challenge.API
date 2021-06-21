@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
+using Meters.inGaia.Challenge.API.Core.Resources;
 using Meters.inGaia.Challenge.API.Repositories.MeterPrice.Interface;
 using Meters.inGaia.Challenge.API.Services.Property.Interface;
 using Microsoft.Extensions.Logging;
@@ -39,23 +40,16 @@ namespace Meters.inGaia.Challenge.API.Services.Property
         public async Task<PropertyModel> GetPropertyValue(string meters)
         {
             var property = new PropertyModel();
-            decimal decimalMeters;
 
-            if (!decimal.TryParse(meters, NumberStyles.Any, CultureInfo.InvariantCulture, out decimalMeters)
-                || string.IsNullOrWhiteSpace(meters)
-                || meters.Contains(','))
+            var error = ValidateRequest(meters);
+
+            if (!string.IsNullOrEmpty(error))
             {
-                property.SetError("Meters out of format");
-                logger.LogWarning($"Meters out of format. String provided: {meters}");
+                property.SetError(error);
                 return property;
             }
 
-            if (decimalMeters < 10 || decimalMeters > 10000)
-            {
-                property.SetError("Meters out of range. Minimun 10, maximum 10000.");
-                logger.LogWarning($"Meters out of range. Meter(s) provided: {decimalMeters}");
-                return property;
-            }
+            decimal decimalMeters = decimal.Parse(meters);
 
             var squareMeterPrice = await GetSquareMeterPrice();
 
@@ -70,6 +64,27 @@ namespace Meters.inGaia.Challenge.API.Services.Property
             property.SetValue(Math.Round(response, 2));
 
             return property;
+        }
+
+        private string ValidateRequest(string meters)
+        {
+            decimal decimalMeters;
+
+            if (!decimal.TryParse(meters, NumberStyles.Any, CultureInfo.InvariantCulture, out decimalMeters)
+                || string.IsNullOrWhiteSpace(meters)
+                || meters.Contains(','))
+            {
+                logger.LogWarning(string.Format(BusinessMessage.MetersOutOfFormat, meters));
+                return string.Format(BusinessMessage.MetersOutOfFormat, meters);
+            }
+
+            if (decimalMeters < 10 || decimalMeters > 10000)
+            {
+                logger.LogWarning(string.Format(BusinessMessage.MetersOutOfRange, meters));
+                return string.Format(BusinessMessage.MetersOutOfRange, meters);
+            }
+
+            return null;
         }
     }
 }
