@@ -69,6 +69,21 @@ namespace Meters.inGaia.Challenge.API.Unit.Tests.Services.Property
         }
 
         [Fact]
+        public async void GetPropertyValue_When_Meters_Format_Is_Out_Of_Range()
+        {
+            // Arrange
+            string meters = "10001"; // No letters, no comma, no empty space, and between 10 and 10000.
+            var squareMeterPrice = new MeterPrice { Id = 1, MeterType = Models.Enums.MeterTypeEnum.M2, Value = 1 };
+            mockMeterPriceRepository.Setup(_ => _.GetMeterPrice()).Returns(Task.FromResult(squareMeterPrice));
+
+            // Act
+            var result = await propertyService.GetPropertyValue(meters);
+
+            // Assert
+            Assert.NotEmpty(result.Error);
+        }
+
+        [Fact]
         public async void GetPropertyValue_When_Meters_Format_Is_Ok()
         {
             // Arrange
