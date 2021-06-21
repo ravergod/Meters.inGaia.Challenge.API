@@ -6,9 +6,9 @@
         {
         }
 
-        public decimal PropertySizeInSquareMeters { get; private set; }
+        public decimal PropertySizeInSquareMeters { get; set; }
 
-        public decimal Value { get; private set; }
+        public decimal Value { get; set; }
 
         public string Error { get; private set; }
 
