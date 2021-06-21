@@ -1,9 +1,9 @@
-﻿using Meters.inGaia.Challenge.API.Repositories.MeterPrice.Interface;
-using Meters.inGaia.Challenge.API.Services.Property.Interface;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
+using Meters.inGaia.Challenge.API.Repositories.MeterPrice.Interface;
+using Meters.inGaia.Challenge.API.Services.Property.Interface;
+using Microsoft.Extensions.Logging;
 using MeterPriceModel = Meters.inGaia.Challenge.API.Models.MeterPrice;
 using PropertyModel = Meters.inGaia.Challenge.API.Models.Property;
 
@@ -46,14 +46,14 @@ namespace Meters.inGaia.Challenge.API.Services.Property
                 || meters.Contains(','))
             {
                 property.SetError("Meters out of format");
-                logger.LogError($"Meters out of format. String provided: {meters}");
+                logger.LogWarning($"Meters out of format. String provided: {meters}");
                 return property;
             }
 
             if (decimalMeters < 10 || decimalMeters > 10000)
             {
                 property.SetError("Meters out of range. Minimun 10, maximum 10000.");
-                logger.LogError($"Meters out of range. Meter(s) provided: {decimalMeters}");
+                logger.LogWarning($"Meters out of range. Meter(s) provided: {decimalMeters}");
                 return property;
             }
 

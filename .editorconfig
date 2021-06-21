@@ -11,3 +11,6 @@ dotnet_diagnostic.SA1402.severity=silent
 dotnet_diagnostic.SA1614.severity=silent
 dotnet_diagnostic.SA1633.severity=silent
 dotnet_diagnostic.SA1300.severity=suggestion
+
+# SA1404: Code analysis suppression should have justification
+dotnet_diagnostic.SA1404.severity = none

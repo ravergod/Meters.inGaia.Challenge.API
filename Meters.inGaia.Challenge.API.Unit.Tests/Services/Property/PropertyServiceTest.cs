@@ -1,9 +1,9 @@
-﻿using Meters.inGaia.Challenge.API.Models;
+﻿using System.Threading.Tasks;
+using Meters.inGaia.Challenge.API.Models;
 using Meters.inGaia.Challenge.API.Repositories.MeterPrice.Interface;
 using Meters.inGaia.Challenge.API.Services.Property;
 using Microsoft.Extensions.Logging;
 using Moq;
-using System.Threading.Tasks;
 using Xunit;
 using PropertyModel = Meters.inGaia.Challenge.API.Models.Property;
 
